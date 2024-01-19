@@ -8,8 +8,12 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import SMOTE, ADASYN, Random Oversampling
 from collections import Counter
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, BatchNormalization
+from keras.utils import to_categorical
+from keras.callbacks import EarlyStopping
 
-# Load the UNSW_NB15 dataset
+# Load the your dataset
 def df = pd.read_csv(file_path):
     """
     Load the dataset from a CSV file.
@@ -22,35 +26,27 @@ def df = pd.read_csv(file_path):
   # Identify categorical columns with string values
   def categorical_columns = ['select the features']
 
-  # Apply SMOTE to balance the dataset/ SMOTE/ ADASYN, and Random Oversampling (ROS)
+  # Apply your techniques to balance the dataset/ SMOTE/ ADASYN, and Random Oversampling (ROS)
   def smote = SMOTE(sampling_strategy='auto', random_state=42)
     X_resampled, y_resampled = smote.fit_resample(X, y)
 
-  def runtime_batch_normalization(data):
-    """
-    Perform real-time runtime batch normalization.
-    """
-    scaler = StandardScaler()
-    normalized_data = scaler.fit_transform(data)
-    return normalized_data
+    # Apply LabelEncoder to categorical columns
+    def label_encoder = LabelEncoder()
+    for col in categorical_columns:
+        if df[col].dtype == 'object':
+            df[col] = label_encoder.fit_transform(df[col])
 
-  def feature_representation(data):
-    """
-    Apply N-grams and one-hot encoding for feature representation.
-    """
-    # Your code for N-grams and one-hot encoding
+    # Separate features and labels
+    def X = df_balanced.drop('label', axis=1)
+        y = df_balanced['label']
 
-  def generate_ngrams(opcodes, n=2):
-    """
-    Generate N-grams from the list of opcodes.
-    """
-    ngrams = []
-    for i in range(len(opcodes) - n + 1):
-        ngram = ' '.join(opcodes[i:i+n])
-        ngrams.append(ngram)
-    return ngrams
+    # Encode labels
+    def label_encoder = LabelEncoder()
+        y_encoded = label_encoder.fit_transform(y)
 
-  def one_hot_encoding(ngrams):
+    # One-hot encode labels for classification
+    def one_hot_encoding(ngrams):    
+    y_onehot = to_categorical(y_encoded)
     """
     Perform one-hot encoding on the N-grams.
     """
@@ -58,34 +54,22 @@ def df = pd.read_csv(file_path):
     ngrams_array = np.array(ngrams).reshape(-1, 1)
     onehot_encoded = onehot_encoder.fit_transform(ngrams_array)
     return onehot_encoded
-    
-    # Generate n-grams from the sample opcodes
-    ngrams = generate_ngrams(sample_opcodes, n=3)
-    print("Generated N-grams:", ngrams)
-    
-    # Perform one-hot encoding on the generated N-grams
-    onehot_encoded_ngrams = one_hot_encoding(ngrams)
-    print("One-hot Encoded N-grams:", onehot_encoded_ngrams)
-  
-    return data
 
-  def split_dataset(features, labels):
+    # Standardize the features
+    def scaler = StandardScaler()
+        X = scaler.fit_transform(X)
+
+    # Split the dataset
+   def  X_train, X_test, y_train, y_test = train_test_split(X, y_onehot, test_size=0.2, random_state=42)
+
+    split_dataset(features, labels):
     """
     Split the dataset into training and testing sets.
     """
-    return train_test_split(features, labels, test_size=0.02, random_state=42)
+    return train_test_split(features, labels, test_size=0.2, random_state=42)
 
-  if __name__ == "__main__":
-    # Load dataset
-    def data = load_dataset('DELM.csv')
-    
-    # Separate features and labels
-    def features = pd.drop('label', axis=1)
-      labels = pd['label']
-    
-    # Real-time Runtime Batch Normalization
-    def normalized_features = runtime_batch_normalization(features)
-    
+    # Batch Normalization
+    def normalized_features = batch_normalization(features)
     
     # Feature Representation using N-grams and One-hot Encoding
     def final_features = feature_representation(augmented_features)
