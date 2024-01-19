@@ -7,6 +7,8 @@ We introduce DELM, a comprehensive approach incorporating batch normalization, a
 # UNSW-NB15
 Implementation of an approach of generating synthetic data to balance UNSW-NB15 network anomaly detection Benchmark dataset using DELM and cGAN.
 
+The dataset used for the research are publicly available at https://research.unsw.edu.au/projects/unsw-nb15-dataset
+
 # Getting Started
 Before you begin, ensure you have the following installed:
 
