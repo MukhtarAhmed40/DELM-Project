@@ -4,6 +4,9 @@ The security and reliability of anomaly detections are critical issues in the ne
 # Introduction
 We introduce DELM, a comprehensive approach incorporating batch normalization, adaptive feature agregation, N-grams, features selection, 5 layers and a hybrid envornment combining FDNN, BDN, and the adaptive feature agregation to address these challenges of network anomaly detection.
 
+# UNSW-NB15
+Implementation of an approach of generating synthetic data to balance UNSW-NB15 network anomaly detection Benchmark dataset using DELM cGAN.
+
 # Getting Started
 Before you begin, ensure you have the following installed:
 
