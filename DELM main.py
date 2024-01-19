@@ -23,9 +23,12 @@ from sklearn.neural_network import BernoulliRBM
 from tensorflow.keras.utils import to_categorical
 from keras.optimizers import Adam
 
-# Assuming you have the balanced dataset stored in a variable named 
-# Load the dataset
-data = pd.read_csv('anomaly_detection_dataset.csv')
+def main():
+
+    # Assuming you have the balanced dataset stored in a variable named 
+    # Load the dataset
+    data = pd.read_csv('anomaly_detection_dataset.csv')
+    return pd.read_csv(file_path)
 
 # Data Preprocessing
 # Assuming 'features' contains feature and 'labels' contains corresponding labels
