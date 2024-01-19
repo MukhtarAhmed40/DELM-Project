@@ -1,4 +1,4 @@
-# DELM-Project
+# DELM: Network Anomaly Detection
 The security and reliability of anomaly detections are critical issues in the network securty. Existing methods often employ machine learning techniques and static analysis, which have limitations, such as computational inefficiency and incomplete code analysis. we have used the deep learning method that provides better performance in network security.
 
 # Introduction
